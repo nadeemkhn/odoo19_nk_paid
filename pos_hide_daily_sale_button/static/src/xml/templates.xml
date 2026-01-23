@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="point_of_sale.template" xml:space="preserve">
+    <t t-name="ClosePosPopup" t-inherit="point_of_sale.ClosePosPopup" t-inherit-mode="extension" owl="1">
+        <xpath expr="//button[@title='Download a report with all the sales of the current PoS Session']" position="attributes">
+            <attribute name="data-daily-sale-button">true</attribute>
+            <attribute name="t-att-data-show-button">pos?.config?.hide_daily_sale_button ? 'true' : 'false'</attribute>
+        </xpath>
+    </t>
+</templates>

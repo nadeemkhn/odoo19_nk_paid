@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Add Cancel Shipment button in header for Leopards deliveries -->
+    <record id="view_picking_form_leopards_cancel" model="ir.ui.view">
+        <field name="name">stock.picking.form.leopards.cancel</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="delivery.view_picking_withcarrier_out_form"/>
+        <field name="arch" type="xml">
+            <!-- Hide generic send button for Leopards to avoid duplicate actions -->
+            <xpath expr="//button[@name='send_to_shipper' and not(contains(@class, 'btn-primary'))]" position="attributes">
+                <attribute name="attrs">{'invisible': ['|', '|', '|', '|', '|', ('delivery_type', '=', 'leopards'), ('carrier_tracking_ref', '!=', False), ('delivery_type', 'in', ['fixed', 'base_on_rule']), ('delivery_type', '=', False), ('state', '!=', 'done'), ('picking_type_code', '=', 'incoming')]}</attribute>
+            </xpath>
+
+            <!-- Dedicated Leopards action button -->
+            <xpath expr="/form/header/button[last()]" position="after">
+                <button name="send_to_shipper"
+                        string="Book a Shipment"
+                        type="object"
+                        class="btn-primary"
+                        data-hotkey="shift+v"
+                        attrs="{'invisible': ['|', '|', '|', '|', ('delivery_type', '!=', 'leopards'), ('carrier_tracking_ref', '!=', False), ('state', '!=', 'done'), ('picking_type_code', '=', 'incoming'), ('leopards_pending_cancel', '=', True)]}"/>
+            </xpath>
+
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="leopards_shipper_id"
+                       string="Shipper"
+                       options="{'no_create': False}"
+                       attrs="{'invisible': [('delivery_type', '!=', 'leopards')]}"/>
+<!--                <field name="carrier_tracking_ref"-->
+<!--                       string="Tracking Number"-->
+<!--                       placeholder="e.g. ID7524132825"-->
+<!--                       invisible="delivery_type != 'leopards'"/>-->
+                <field name="leopards_pending_cancel" invisible="1"/>
+                <field name="leopards_last_status" string="Current Status" readonly="1" placeholder="Booked / Out for delivery / Delivered..."
+                       attrs="{'invisible': ['|', ('carrier_tracking_ref', '=', False), ('delivery_type', '!=', 'leopards')]}"/>
+                <div class="alert alert-info mb-0" role="alert" attrs="{'invisible': [('leopards_pending_cancel', '=', False)]}">
+                    Cancellation in progress. Leopards API call is running. Refresh to see the latest status.
+                </div>
+            </xpath>
+            <xpath expr="//button[@name='send_to_shipper' and not(contains(@class, 'btn-primary'))]" position="after">
+                <button name="cancel_shipment"
+                        string="Cancel in Leopards"
+                        type="object"
+                        class="btn-secondary"
+                        icon="fa-times-circle"
+                        confirm="Cancel this shipment in Leopards Courier now?"
+                        attrs="{'invisible': ['|', '|', '|', '|', ('carrier_tracking_ref', '=', False), ('delivery_type', '!=', 'leopards'), ('state', '!=', 'done'), ('picking_type_code', '=', 'incoming'), ('leopards_pending_cancel', '=', True)]}"/>
+<!--                <button name="action_clear_tracking_locally"-->
+<!--                        string="Clear Tracking"-->
+<!--                        type="object"-->
+<!--                        class="btn-link"-->
+<!--                        icon="fa-eraser"-->
+<!--                        help="Remove tracking number from Odoo only (no API call). Use when cancel API times out or you cancelled manually in Leopards Portal."-->
+<!--                        confirm="Remove tracking number from Odoo without calling Leopards? Cancel the shipment manually in Leopards Portal if needed."-->
+<!--                        invisible="not carrier_tracking_ref or delivery_type != 'leopards' or state != 'done' or picking_type_code == 'incoming' or leopards_pending_cancel"/>-->
+<!--                <button name="action_refresh_tracking"-->
+<!--                        string="Refresh Tracking"-->
+<!--                        type="object"-->
+<!--                        class="btn-link"-->
+<!--                        icon="fa-refresh"-->
+<!--                        help="Fetch latest tracking status from Leopards and post to chatter."-->
+<!--                        invisible="not carrier_tracking_ref or delivery_type != 'leopards' or state != 'done' or picking_type_code == 'incoming'"/>-->
+            </xpath>
+        </field>
+    </record>
+</odoo>

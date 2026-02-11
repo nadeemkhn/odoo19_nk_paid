@@ -1,0 +1,84 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Leopards Courier Integration</h2>
+        <h3 class="oe_slogan">Odoo 16 Shipping Automation</h3>
+        <p class="oe_mt32">
+            Integrate Odoo Delivery with Leopards Courier API for live rates, shipment booking,
+            labels, tracking updates, and cancellations from within Odoo.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Why This Module</h4>
+        <ul>
+            <li>Direct Leopards API integration for operational speed.</li>
+            <li>No manual courier portal entry for each shipment.</li>
+            <li>Clear workflow: validate transfer, then book shipment.</li>
+            <li>Built for Odoo 16 delivery and website sales flow.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Key Features</h4>
+        <ul>
+            <li><strong>Delivery Method Type:</strong> Adds <code>leopards</code> carrier type.</li>
+            <li><strong>Live Rates:</strong> Uses <code>getTariffDetails</code> for shipping cost.</li>
+            <li><strong>Booking:</strong> Uses <code>bookPacket</code> from delivery orders.</li>
+            <li><strong>Tracking:</strong> Uses <code>trackBookedPacket</code> with status sync.</li>
+            <li><strong>Cancellation:</strong> Uses <code>cancelBookedPackets</code>.</li>
+            <li><strong>Shipper Management:</strong> Dedicated shipper records and per-picking override.</li>
+            <li><strong>Automation:</strong> Cron jobs for tracking refresh and queued cancellations.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Configuration</h4>
+        <ol>
+            <li>Go to <strong>Inventory &gt; Configuration &gt; Delivery Methods</strong>.</li>
+            <li>Create/edit method and set <strong>Delivery Type = Leopards Courier</strong>.</li>
+            <li>Set API Key, API Secret, API URL, and optional Account ID/Shipper.</li>
+            <li>Click <strong>Test Connection</strong> and save.</li>
+        </ol>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Operational Flow</h4>
+        <ol>
+            <li>Create quotation/sales order and add Leopards shipping method.</li>
+            <li>Get shipping rate and confirm the order.</li>
+            <li>Validate the delivery transfer.</li>
+            <li>Open delivery and click <strong>Book a Shipment</strong>.</li>
+            <li>Track CN status and cancel from Odoo if required.</li>
+        </ol>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Compatibility and Price</h4>
+        <ul>
+            <li><strong>Odoo Version:</strong> 16.0</li>
+            <li><strong>License:</strong> LGPL-3</li>
+            <li><strong>App Price:</strong> USD 90</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Support</h4>
+        <p>
+            Author/Maintainer: Muhammad nadeem (nk)<br/>
+            Website: https://nadeemwazir.com<br/>
+            Email: nadeemwazir0123@gmail.com
+        </p>
+    </div>
+</section>

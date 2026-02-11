@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit_delivery_leopards" model="ir.ui.view">
+        <field name="name">sale.order.form.delivery.leopards</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale_stock.view_order_form_inherit_sale_stock"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='delivery_status']" position="after">
+                <label for="carrier_tracking_ref" string="Tracking"/>
+                <div class="o_row">
+                    <field name="carrier_tracking_ref" readonly="1" class="oe_inline" placeholder="Send to carrier on delivery order to get tracking"/>
+                    <button name="action_view_tracking" type="object" class="oe_link" icon="fa-external-link" string="Track delivery"
+                            attrs="{'invisible': [('carrier_tracking_ref', '=', False)]}" groups="stock.group_stock_user"
+                            help="Open delivery order(s) to track shipment"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>

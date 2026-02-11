@@ -1,4 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_delivery_carrier_leopards,delivery.carrier.leopards,delivery.model_delivery_carrier,base.group_user,1,1,1,1
-access_leopards_shipper,leopards.shipper,delivery_leopards.model_leopards_shipper,base.group_user,1,1,1,1
-

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_leopards_shipper_tree" model="ir.ui.view">
+        <field name="name">leopards.shipper.tree</field>
+        <field name="model">leopards.shipper</field>
+        <field name="arch" type="xml">
+            <tree string="Leopards Shippers" decoration-muted="active == False" create="1" delete="1">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="city"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_leopards_shipper_form" model="ir.ui.view">
+        <field name="name">leopards.shipper.form</field>
+        <field name="model">leopards.shipper</field>
+        <field name="arch" type="xml">
+            <form string="Manage Shipper">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive">
+                            <field name="active" widget="boolean_button" options="{'terminology': 'archive'}"/>
+                        </button>
+                    </div>
+                    <group>
+                        <group string="Shipper Details">
+                            <field name="name" placeholder="e.g. Bionext Lahore"/>
+                            <field name="email" placeholder="e.g. bionextpharmaceutica@gmail.com"/>
+                            <field name="phone" placeholder="e.g. 03000336364"/>
+                            <field name="cnic" placeholder="e.g. 8220332749219"/>
+                        </group>
+                        <group string="Location">
+                            <field name="city" placeholder="e.g. Lahore"/>
+                            <field name="area" placeholder="e.g. Iqbal Town"/>
+                            <field name="block_sub_area" placeholder="Search Block"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Return Address">
+                            <field name="return_city" placeholder="e.g. Lahore"/>
+                            <field name="return_address" placeholder="Full address for return shipments" nolabel="0"/>
+                        </group>
+                        <group string="Shipper Address">
+                            <field name="shipper_address" placeholder="Karim block allama Iqbal town 251-A karim block allama Iqbal town Lahore Pakistan" nolabel="0"/>
+                        </group>
+                    </group>
+                    <group string="Settlement (Optional)">
+                        <group>
+                            <field name="settle_shipper"/>
+                            <field name="iban" placeholder="IBAN #" invisible="not settle_shipper"/>
+                            <field name="ac_no" placeholder="A/C No #" invisible="not settle_shipper"/>
+                        </group>
+                        <group>
+                            <div class="text-muted" style="margin-top: 8px; font-size: 0.9em;">
+                                If you intend to settle your shippers separately, you can insert the above details to facilitate your shippers.
+                            </div>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_leopards_shipper_search" model="ir.ui.view">
+        <field name="name">leopards.shipper.search</field>
+        <field name="model">leopards.shipper</field>
+        <field name="arch" type="xml">
+            <search string="Search Shippers">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="city"/>
+                <filter string="Active" name="active" domain="[('active', '=', True)]"/>
+                <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_leopards_shipper" model="ir.actions.act_window">
+        <field name="name">Leopards Shippers</field>
+        <field name="res_model">leopards.shipper</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Leopards Shipper
+            </p>
+            <p>
+                Shippers are the sender details sent to Leopards when creating shipments.
+                Add shippers here and select one in your Leopards delivery method.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_leopards_shipper"
+        name="Leopards Shippers"
+        action="action_leopards_shipper"
+        parent="stock.menu_stock_config_settings"
+        sequence="55"/>
+</odoo>

@@ -1,0 +1,94 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">Leopards Courier Integration</h2>
+        <h3 class="oe_slogan">Complete User Guide</h3>
+        <p class="oe_mt32">
+            Connect Odoo Delivery with Leopards Courier for live rate calculation, manual shipment booking,
+            label attachment, tracking status refresh, and cancellation handling.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Important Workflow</h4>
+        <ul>
+            <li><strong>Validate</strong> only validates stock transfer.</li>
+            <li><strong>Book a Shipment</strong> creates shipment in Leopards and generates CN.</li>
+            <li>You can cancel shipment directly from Odoo using <strong>Cancel in Leopards</strong>.</li>
+            <li>Status updates are handled through Leopards tracking API (scheduled action + manual refresh).</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Step 1: Configure Delivery Method</h4>
+        <ol>
+            <li>Go to <strong>Inventory &gt; Configuration &gt; Delivery Methods</strong>.</li>
+            <li>Create or edit method and set <strong>Delivery Type = Leopards Courier</strong>.</li>
+            <li>Enter <strong>API Key</strong>, <strong>API Secret</strong>, and <strong>API URL</strong>.</li>
+            <li>Optionally set default <strong>Shipper</strong> and <strong>Account ID</strong>.</li>
+            <li>Click <strong>Test Connection</strong> and save.</li>
+        </ol>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Step 2: Configure Shipper</h4>
+        <ol>
+            <li>Go to <strong>Inventory &gt; Configuration &gt; Leopards Shippers</strong>.</li>
+            <li>Create shipper with sender details and address.</li>
+            <li>Assign shipper in Leopards delivery method, or override per delivery order.</li>
+        </ol>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Step 3: Daily Usage</h4>
+        <ol>
+            <li>Create Sales Order and select Leopards delivery method.</li>
+            <li>Confirm order and process transfer.</li>
+            <li>Click <strong>Validate</strong>.</li>
+            <li>Open delivery and click <strong>Book a Shipment</strong>.</li>
+            <li>System writes CN in tracking reference and attaches label when available.</li>
+            <li>Use tracking button or refresh action to monitor latest status.</li>
+        </ol>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Tracking and Cancellation</h4>
+        <ul>
+            <li><strong>Current Status</strong> is shown on delivery order.</li>
+            <li><strong>Leopards: Auto-refresh tracking status</strong> cron updates statuses automatically.</li>
+            <li><strong>Cancel in Leopards</strong> requests cancellation.</li>
+            <li><strong>Leopards: Process queued cancellations</strong> cron completes pending cancellations.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Troubleshooting</h4>
+        <ul>
+            <li>CN not created: click <strong>Book a Shipment</strong> after validation.</li>
+            <li>API auth issues: verify API Secret matches Leopards API Password exactly.</li>
+            <li>Status not changing: confirm tracking scheduled action is active.</li>
+            <li>Rate issue: verify destination city and API environment URL.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h4>Support</h4>
+        <p>
+            Maintainer: Hameed Pvt.Ltd<br/>
+            Email: nadeemwazir0123@gmail.com
+        </p>
+    </div>
+</section>

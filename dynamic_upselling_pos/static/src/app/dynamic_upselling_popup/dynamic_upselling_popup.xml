@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="dynamic_upselling_pos.DynamicUpsellingPopup">
+        <Dialog size="'lg'">
+            <div class="axsync-upsell-title" t-esc="title"/>
+            <div class="axsync-upsell-subtitle" t-esc="subtitle"/>
+            <div class="axsync-upsell-grid">
+                <t t-foreach="props.products" t-as="product" t-key="product.id">
+                    <div class="axsync-upsell-card" t-att-class="getProductQty(product.id) ? 'selected' : ''">
+                        <div class="axsync-upsell-card-header">
+                            <div class="axsync-upsell-name" t-esc="getProductName(product)"/>
+                            <img class="axsync-upsell-image" t-att-src="getProductImageUrl(product)" t-att-alt="getProductName(product)"/>
+                        </div>
+                        <div class="axsync-upsell-price">
+                            <span>Unit price:</span>
+                            <span t-esc="getProductPrice(product)"/>
+                        </div>
+
+                        <div t-if="getProductQty(product.id)" class="axsync-upsell-actions selected-actions">
+                            <div class="axsync-upsell-qty">
+                                <button class="btn btn-secondary" t-on-click="() => this.onDecrease(product.id)">-</button>
+                                <span t-esc="getProductQty(product.id)"/>
+                                <button class="btn btn-secondary" t-on-click="() => this.onIncrease(product.id)">+</button>
+                            </div>
+                            <button class="btn btn-outline-secondary" t-on-click="() => this.onRemove(product.id)">Remove</button>
+                        </div>
+                        <div t-else="" class="axsync-upsell-actions">
+                            <button class="btn btn-primary" t-on-click="() => this.onAdd(product.id)">Add</button>
+                        </div>
+                    </div>
+                </t>
+            </div>
+            <t t-set-slot="footer">
+                <button class="btn btn-secondary btn-lg lh-lg" t-on-click="this.onSkip">Skip</button>
+                <button class="btn btn-primary btn-lg lh-lg" t-on-click="this.onConfirm">Okay</button>
+            </t>
+        </Dialog>
+    </t>
+</templates>

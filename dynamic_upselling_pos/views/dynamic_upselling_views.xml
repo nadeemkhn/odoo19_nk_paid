@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_axsync_dynamic_upselling_tree" model="ir.ui.view">
+        <field name="name">dynamic.upselling.tree</field>
+        <field name="model">axsync.dynamic.upselling</field>
+        <field name="arch" type="xml">
+            <list string="Dynamic Upselling Rules">
+                <field name="config_ids" widget="many2many_tags" optional="show"/>
+                <field name="product_ids" widget="many2many_tags" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_axsync_dynamic_upselling_form" model="ir.ui.view">
+        <field name="name">dynamic.upselling.form</field>
+        <field name="model">axsync.dynamic.upselling</field>
+        <field name="arch" type="xml">
+            <form string="Dynamic Upselling Rule">
+                <sheet>
+
+                    <group>
+                        <field name="config_ids" widget="many2many_tags"/>
+                        <field name="product_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_axsync_dynamic_upselling" model="ir.actions.act_window">
+        <field name="name">Dynamic adding Products </field>
+        <field name="res_model">axsync.dynamic.upselling</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_axsync_dynamic_upselling"
+        name="Dynamic adding Products"
+        parent="point_of_sale.menu_point_config_product"
+        action="action_axsync_dynamic_upselling"
+        sequence="35"
+        groups="point_of_sale.group_pos_manager"/>
+</odoo>

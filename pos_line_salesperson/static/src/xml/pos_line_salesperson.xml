@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-inherit="point_of_sale.ControlButtons" t-inherit-mode="extension">
+        <xpath expr="//SelectPartnerButton" position="after">
+            <button t-if="!props.showRemainingButtons and this.pos.cashier._role != 'minimal'"
+                    class="btn btn-secondary btn-lg lh-sm d-flex flex-column align-items-start justify-content-center"
+                    t-on-click="() => this.clickSalesperson()">
+                <span class="small text-muted">Salesperson</span>
+                <span class="fw-semibold text-truncate w-100" t-esc="selectedSalespersonName"/>
+            </button>
+        </xpath>
+
+        <xpath expr="//div[hasclass('control-buttons-modal')]" position="inside">
+            <button t-if="this.pos.cashier._role != 'minimal'"
+                    t-att-class="buttonClass"
+                    t-on-click="() => this.clickSalesperson()">
+                <i class="fa fa-user me-1" role="img" aria-label="Salesperson" title="Salesperson"/>
+                Salesperson: <t t-esc="selectedSalespersonName"/>
+            </button>
+        </xpath>
+    </t>
+
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//ul[hasclass('info-list')]" position="inside">
+            <li t-if="vals.salespersonName"
+                class="line-salesperson d-flex justify-content-end text-muted">
+                <img t-if="vals.salespersonImage"
+                     t-att-src="vals.salespersonImage"
+                     class="rounded-circle me-1"
+                     style="width: 16px; height: 16px; object-fit: cover;"
+                     alt="Salesperson"/>
+                <i t-else="" class="fa fa-user me-1" role="img" aria-label="Salesperson" title="Salesperson"/>
+                <t t-esc="vals.salespersonName"/>
+            </li>
+        </xpath>
+    </t>
+</templates>

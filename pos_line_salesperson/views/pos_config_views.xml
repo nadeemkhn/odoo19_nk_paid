@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_config_view_form_inherit_line_salesperson" model="ir.ui.view">
+        <field name="name">pos.config.form.inherit.line.salesperson</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[field[@name='module_pos_hr']]" position="after">
+                <setting
+                    string="Line Salespersons"
+                    help="Select employees allowed in the POS Salesperson button for this shop.">
+                    <field name="company_id" invisible="1"/>
+                    <field
+                        name="line_salesperson_employee_ids"
+                        widget="many2many_tags"
+                        placeholder="Select Employee(s)"
+                        domain="[('active', '=', True), '|', ('company_id', '=', False), ('company_id', '=', company_id)]"/>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

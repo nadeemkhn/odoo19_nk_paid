@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_employee_form_inherit_pos_line_salesperson" model="ir.ui.view">
+        <field name="name">hr.employee.form.pos.line.salesperson</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='work_information']//field[@name='parent_id']" position="after">
+                <field name="show_in_pos_salesperson"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

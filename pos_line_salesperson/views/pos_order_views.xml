@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_pos_pos_form_inherit_line_salesperson" model="ir.ui.view">
+        <field name="name">pos.order.form.line.salesperson</field>
+        <field name="model">pos.order</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='products']//field[@name='lines']/list/field[@name='customer_note']" position="after">
+                <field name="salesperson_name" string="Salesperson" optional="show"/>
+            </xpath>
+            <xpath expr="//page[@name='products']//field[@name='lines']/form/group/field[@name='notice']" position="after">
+                <field name="salesperson_name" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_order_line_inherit_salesperson" model="ir.ui.view">
+        <field name="name">pos.order.line.list.salesperson</field>
+        <field name="model">pos.order.line</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_line"/>
+        <field name="arch" type="xml">
+            <xpath expr="//list/field[@name='product_id']" position="after">
+                <field name="salesperson_name" string="Salesperson"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_pos_order_line_form_inherit_salesperson" model="ir.ui.view">
+        <field name="name">pos.order.line.form.salesperson</field>
+        <field name="model">pos.order.line</field>
+        <field name="inherit_id" ref="point_of_sale.view_pos_order_line_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/group/field[@name='product_id']" position="after">
+                <field name="salesperson_name" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

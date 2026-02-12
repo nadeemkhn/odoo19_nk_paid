@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>POS Line Salesperson</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #222;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fb;
+        }
+        .container {
+            max-width: 980px;
+            margin: 24px auto;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 28px;
+        }
+        h1, h2 {
+            margin-top: 0;
+            color: #111827;
+        }
+        .badge {
+            display: inline-block;
+            background: #0ea5e9;
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-bottom: 14px;
+        }
+        ul {
+            padding-left: 18px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        .section {
+            margin-top: 22px;
+        }
+        .footer {
+            margin-top: 28px;
+            font-size: 13px;
+            color: #6b7280;
+        }
+        .screenshot {
+            margin-top: 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="badge">Odoo 19.0</span>
+        <h1>POS Line Salesperson</h1>
+        <p>
+            Assign salesperson per POS order line, restrict selectable salespersons by shop,
+            and analyze salesperson performance directly from POS reports.
+        </p>
+
+        <div class="section">
+            <h2>Features</h2>
+            <ul>
+                <li>Salesperson field on each POS order line.</li>
+                <li>Salesperson shown in POS line UI and backend order lines.</li>
+                <li>Shop-level employee selection for salesperson button.</li>
+                <li>Employee avatar in salesperson selection popup.</li>
+                <li>Salesperson support in POS Orders Analysis search/grouping.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>How It Works</h2>
+            <ul>
+                <li>Configure allowed employees in <strong>Point of Sale Configuration</strong>.</li>
+                <li>Open POS session and select any order line.</li>
+                <li>Click <strong>Salesperson</strong> button and choose employee.</li>
+                <li>Salesperson is saved per line and available in reporting.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Screenshot</h2>
+            <img class="screenshot" src="/pos_line_salesperson/static/description/salesperson_popup.png" alt="Salesperson selection popup"/>
+        </div>
+
+        <div class="section">
+            <h2>Dependencies</h2>
+            <ul>
+                <li>point_of_sale</li>
+                <li>hr</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Support</h2>
+            <ul>
+                <li>Maintainer: <strong>Hameed Pvt.Ltd</strong></li>
+                <li>Email: <strong>nadeemwazir0123@gmail.com</strong></li>
+                <li>by <strong>Muhammad Nadeem (nk)</strong></li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            License: LGPL-3
+        </div>
+    </div>
+</body>
+</html>

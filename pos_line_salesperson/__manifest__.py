@@ -1,6 +1,6 @@
 {
     "name": "POS Line Salesperson",
-    "version": "19.0.1.0.1",
+    "version": "19.0.1.0.5",
     "summary": "Assign salesperson per POS order line and print on receipt",
     "category": "Point Of Sale",
     "author": "Muhammad Nadeem (nk)",
@@ -9,9 +9,11 @@
     "price": 32.0,
     "currency": "USD",
     "images": [
+        "static/description/screenshots/pos_line_04.png",
         "static/description/screenshots/main_screenshot.png",
         "static/description/screenshots/pos_line_01.png",
         "static/description/screenshots/pos_line_02.png",
+        "static/description/screenshots/pos_line_03.png",
     ],
     "license": "LGPL-3",
     "depends": ["point_of_sale", "hr"],

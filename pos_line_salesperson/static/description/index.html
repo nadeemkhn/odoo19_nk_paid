@@ -4,110 +4,72 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>POS Line Salesperson</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            color: #222;
-            margin: 0;
-            padding: 0;
-            background: #f8f9fb;
-        }
-        .container {
-            max-width: 980px;
-            margin: 24px auto;
-            background: #fff;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 28px;
-        }
-        h1, h2 {
-            margin-top: 0;
-            color: #111827;
-        }
-        .badge {
-            display: inline-block;
-            background: #0ea5e9;
-            color: #fff;
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 12px;
-            margin-bottom: 14px;
-        }
-        ul {
-            padding-left: 18px;
-        }
-        li {
-            margin: 8px 0;
-        }
-        .section {
-            margin-top: 22px;
-        }
-        .footer {
-            margin-top: 28px;
-            font-size: 13px;
-            color: #6b7280;
-        }
-        .screenshot {
-            margin-top: 14px;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            width: 100%;
-            height: auto;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <span class="badge">Odoo 19.0</span>
-        <h1>POS Line Salesperson</h1>
-        <p>
-            Assign salesperson per POS order line, restrict selectable salespersons by shop,
-            and analyze salesperson performance directly from POS reports.
-        </p>
+    <h1>POS Line Salesperson</h1>
+    <p>
+        Assign salesperson per POS order line, restrict selectable salespersons by shop,
+        and analyze salesperson performance directly from POS reports.
+    </p>
 
-        <div class="section">
-            <h2>Features</h2>
-            <ul>
-                <li>Salesperson field on each POS order line.</li>
-                <li>Salesperson shown in POS line UI and backend order lines.</li>
-                <li>Shop-level employee selection for salesperson button.</li>
-                <li>Employee avatar in salesperson selection popup.</li>
-                <li>Salesperson support in POS Orders Analysis search/grouping.</li>
-            </ul>
-        </div>
+    <p>
+        <a href="#screenshots">Screenshots</a> |
+        <a href="#features">Features</a> |
+        <a href="#faqs">FAQs</a> |
+        <a href="#releases">Releases</a>
+    </p>
+    <hr/>
 
-        <div class="section">
-            <h2>How It Works</h2>
-            <ul>
-                <li>Configure allowed employees in <strong>Point of Sale Configuration</strong>.</li>
-                <li>Open POS session and select any order line.</li>
-                <li>Click <strong>Salesperson</strong> button and choose employee.</li>
-                <li>Salesperson is saved per line and available in reporting.</li>
-            </ul>
-        </div>
+    <h2 id="screenshots">Screenshots</h2>
+    <p>Below are complete module screenshots with explanation for each screen.</p>
 
-        
+    <h3>1. App Store Listing Preview</h3>
+    <p>How module media and highlighted screenshots appear on the listing page.</p>
+    <img src="screenshots/pos_line_04.png" alt="POS line salesperson screenshot 4" style="max-width: 100%; height: auto;"/>
 
-        <div class="section">
-            <h2>Dependencies</h2>
-            <ul>
-                <li>point_of_sale</li>
-                <li>hr</li>
-            </ul>
-        </div>
+    <h3>2. Salesperson Selection Popup</h3>
+    <p>Cashier selects salesperson for the selected POS order line from allowed employees.</p>
+    <img src="screenshots/main_screenshot.png" alt="Salesperson popup" style="max-width: 100%; height: auto;"/>
 
-        <div class="section">
-            <h2>Support</h2>
-            <ul>
-                <li>Maintainer: <strong>Hameed Pvt.Ltd</strong></li>
-                <li>Email: <strong>nadeemwazir0123@gmail.com</strong></li>
-                <li>by <strong>Muhammad Nadeem (nk)</strong></li>
-            </ul>
-        </div>
+    <h3>3. POS Screen With Assigned Salesperson</h3>
+    <p>The assigned salesperson appears directly on the POS line in the register area.</p>
+    <img src="screenshots/pos_line_01.png" alt="POS line salesperson screenshot 1" style="max-width: 100%; height: auto;"/>
 
-        <div class="footer">
-            License: LGPL-3
-        </div>
-    </div>
+    <h3>4. POS Order Line Details</h3>
+    <p>Order line view showing salesperson details attached to the sold product line.</p>
+    <img src="screenshots/pos_line_02.png" alt="POS line salesperson screenshot 2" style="max-width: 100%; height: auto;"/>
+
+    <h3>5. Compact POS Preview</h3>
+    <p>Compact display preview of register and line-level salesperson behavior.</p>
+    <img src="screenshots/pos_line_03.png" alt="POS line salesperson screenshot 3" style="max-width: 100%; height: auto;"/>
+
+    <hr/>
+    <h2 id="features">Features</h2>
+    <ul>
+        <li>Salesperson field on each POS order line.</li>
+        <li>Salesperson shown in POS line UI and backend order lines.</li>
+        <li>Shop-level employee selection for salesperson button.</li>
+        <li>Employee avatar in salesperson selection popup.</li>
+        <li>Salesperson support in POS Orders Analysis search and grouping.</li>
+        <li>Price: USD 32.00</li>
+    </ul>
+
+    <hr/>
+    <h2 id="faqs">FAQs</h2>
+    <p><strong>Q:</strong> How do I configure available salespersons per shop?</p>
+    <p><strong>A:</strong> Open Point of Sale configuration and select employees in the allowed salesperson field.</p>
+    <p><strong>Q:</strong> Can I track salesperson in reports?</p>
+    <p><strong>A:</strong> Yes. POS Orders Analysis includes salesperson search/group options.</p>
+    <p><strong>Q:</strong> Does the POS popup show employee avatar?</p>
+    <p><strong>A:</strong> Yes, avatar is shown when available on employee image.</p>
+
+    <hr/>
+    <h2 id="releases">Releases</h2>
+    <p><strong>19.0.1.0.5</strong> - Reordered screenshots and set listing preview image as top screenshot.</p>
+    <p><strong>19.0.1.0.3</strong> - Added explained screenshot gallery with all module images.</p>
+    <p><strong>19.0.1.0.0</strong> - Initial release with line-level salesperson assignment for POS.</p>
+
+    <hr/>
+    <p>Support: Hameed Pvt.Ltd | nadeemwazir0123@gmail.com | by Muhammad Nadeem (nk)</p>
 </body>
 </html>

@@ -1,0 +1,137 @@
+.o_qty_button_group {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.o_qty_button_group_card {
+    margin-inline-end: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+}
+
+.o_qty_choice {
+    position: relative;
+    width: 100%;
+    min-height: 2.4rem;
+    border: 1px solid #1f1f1f;
+    border-radius: 0.4rem;
+    background: #fff;
+    color: #1f1f1f;
+    font-weight: 600;
+    line-height: 1.1;
+    padding: 0.5rem 0.55rem;
+    transition: all 0.16s ease;
+    text-align: center;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.o_qty_choice:hover {
+    border-color: #111;
+    color: #111;
+}
+
+.o_qty_choice.active,
+.o_qty_choice.active:hover {
+    background: #4a4a4a;
+    border-color: #4a4a4a;
+    color: #fff;
+}
+
+.o_qty_discount_badge {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.35rem;
+    min-width: 2rem;
+    height: 1.25rem;
+    border-radius: 999px;
+    background: #df6a2e;
+    color: #fff;
+    font-size: 0.68rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+    padding: 0 0.35rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
+    pointer-events: none;
+}
+
+.o_qty_savings_text {
+    color: #d45555;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1.2;
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-top: -0.25rem;
+    margin-bottom: 0.35rem;
+}
+
+#product_detail .o_qty_savings_text {
+    font-size: 0.96rem;
+    margin-top: -0.1rem;
+    margin-bottom: 0.7rem;
+}
+
+#product_detail .o_qty_button_group_detail {
+    margin-top: -0.25rem;
+    width: 100%;
+    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin-inline-start: 0;
+}
+
+.o_qty_price_loading .product_price {
+    opacity: 0.72;
+}
+
+@media (max-width: 991.98px) {
+    #product_detail .o_qty_button_group_detail {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 575.98px) {
+    .o_qty_button_group_card,
+    #product_detail .o_qty_button_group_detail {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.35rem;
+    }
+
+    .o_qty_choice {
+        min-height: 1.85rem;
+        font-size: 0.82rem;
+        line-height: 1.05;
+        padding: 0.35rem 0.2rem;
+        border-radius: 0.35rem;
+    }
+
+    .o_qty_discount_badge {
+        top: -0.4rem;
+        right: -0.22rem;
+        min-width: 1.5rem;
+        height: 1rem;
+        font-size: 0.58rem;
+        line-height: 1rem;
+        padding: 0 0.2rem;
+    }
+
+    .o_qty_savings_text {
+        font-size: 0.73rem;
+        margin-top: -0.12rem;
+        margin-bottom: 0.25rem;
+    }
+
+    #product_detail .o_qty_savings_text {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+}

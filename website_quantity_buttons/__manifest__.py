@@ -11,9 +11,10 @@
     "currency": "USD",
     "images": [
         "static/description/icon.png",
-        "static/description/screen_website_settings.png",
-        "static/description/screen_product_settings.png",
-        "static/description/screen_pricelist_rules.png",
+        "static/description/img_3.png",
+        "static/description/img.png",
+        "static/description/img_2.png",
+        "static/description/img_1.png",
     ],
     "depends": ["website_sale"],
     "data": [

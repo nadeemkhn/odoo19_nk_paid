@@ -2,7 +2,7 @@
     "name": "POS Stock Restriction and Overselling Control",
     "version": "19.0.1.0.0",
     "summary": "POS stock restriction: block or warn on low stock and prevent overselling",
-    "price": 90.0,
+    "price": 45.0,
     "currency": "USD",
     "category": "Point of Sale",
     "author": "Muhammad Nadeem (nk)",

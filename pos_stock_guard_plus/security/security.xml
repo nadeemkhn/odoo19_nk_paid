@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="group_pos_stock_guard_override" model="res.groups">
+        <field name="name">POS Stock Guard Override</field>
+        <field name="privilege_id" ref="point_of_sale.res_groups_privilege_point_of_sale"/>
+        <field name="implied_ids" eval="[(4, ref('point_of_sale.group_pos_user'))]"/>
+    </record>
+</odoo>

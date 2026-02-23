@@ -1,0 +1,90 @@
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h2 class="oe_slogan">POS Stock Restriction and Overselling Control</h2>
+        <p class="oe_mt32">
+            Prevent overselling in Odoo 19 Point of Sale with configurable stock controls.
+            The module can either strictly block sales or ask for cashier confirmation when stock is below the configured limit.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan">Main Features</h3>
+        <ul>
+            <li>Block or warn when requested quantity exceeds stock</li>
+            <li>Stock basis: Available Quantity or Forecast Quantity</li>
+            <li>Reserve Quantity buffer to keep safety stock</li>
+            <li>Excluded products list per POS shop</li>
+            <li>Optional override group support</li>
+            <li>Stock guard event logs for managers</li>
+            <li>Covers add-product and quantity-increase flows in POS</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan">Behavior Modes</h3>
+        <p><strong>Block Sale:</strong> Show blocking popup and stop action.</p>
+        <p><strong>Warn But Allow:</strong> Show stock details and ask <em>Do you want to continue anyway?</em></p>
+        <ul>
+            <li>Cancel: stop action</li>
+            <li>Continue: proceed</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan">Configuration</h3>
+        <ol>
+            <li>Go to <strong>Point of Sale &gt; Configuration &gt; Point of Sale</strong>.</li>
+            <li>Open the POS shop and enable <strong>POS Stock Guard</strong>.</li>
+            <li>Choose <strong>Restriction Mode</strong> and <strong>Stock Basis</strong>.</li>
+            <li>Set <strong>Reserve Quantity</strong> if needed.</li>
+            <li>Set <strong>Excluded Products</strong> and optional custom warning message.</li>
+            <li>Save, close current session, and open a new POS session.</li>
+        </ol>
+        <div class="oe_mt32">
+            <h4 class="oe_slogan">Configuration Preview</h4>
+            <img
+                src="images/pos_stock_guard_configuration.png"
+                alt="POS Stock Guard configuration"
+                style="max-width: 100%; border: 1px solid #d9d9d9; border-radius: 6px;"/>
+        </div>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan">Monitoring</h3>
+        <p>
+            Managers can audit all warning/block attempts from
+            <strong>Point of Sale &gt; Configuration &gt; Stock Guard Logs</strong>.
+        </p>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan">Module Info</h3>
+        <ul>
+            <li><strong>Technical Name:</strong> <code>pos_stock_guard_plus</code></li>
+            <li><strong>Odoo Version:</strong> 19.0</li>
+            <li><strong>Dependencies:</strong> point_of_sale, stock</li>
+            <li><strong>License:</strong> LGPL-3</li>
+        </ul>
+    </div>
+</section>
+
+<section class="oe_container">
+    <div class="oe_row oe_spaced">
+        <h3 class="oe_slogan">Support</h3>
+        <ul>
+            <li><strong>Author:</strong> Muhammad Nadeem (nk)</li>
+            <li><strong>Maintainer:</strong> Hameed Pvt.Ltd</li>
+            <li><strong>Email:</strong> nadeemwazir0123@gmail.com</li>
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="pos_config_view_form_inherit_stock_guard_plus" model="ir.ui.view">
+        <field name="name">pos.config.form.inherit.stock.guard.plus</field>
+        <field name="model">pos.config</field>
+        <field name="inherit_id" ref="point_of_sale.pos_config_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//setting[field[@name='module_pos_hr']]" position="after">
+                <setting
+                    string="POS Stock Guard"
+                    help="Restrict overselling of storable products from POS using stock-based checks.">
+                    <field name="pos_stock_guard_enabled"/>
+                    <div class="content-group mt16" invisible="not pos_stock_guard_enabled">
+                        <div class="row mt16">
+                            <div class="col-lg-6 col-md-12">
+                                <label for="pos_stock_guard_mode"/>
+                                <field name="pos_stock_guard_mode" nolabel="1"/>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <label for="pos_stock_guard_qty_basis"/>
+                                <field name="pos_stock_guard_qty_basis" nolabel="1"/>
+                            </div>
+                        </div>
+                        <div class="row mt16">
+                            <div class="col-lg-6 col-md-12">
+                                <label for="pos_stock_guard_buffer_qty" string="Quantity"/>
+                                <field name="pos_stock_guard_buffer_qty" nolabel="1"/>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <label for="pos_stock_guard_allow_override"/>
+                                <field name="pos_stock_guard_allow_override" nolabel="1"/>
+                            </div>
+                        </div>
+                        <div class="row mt16">
+                            <div class="col-lg-6 col-md-12">
+                                <label for="pos_stock_guard_excluded_product_ids"/>
+                                <field
+                                    name="pos_stock_guard_excluded_product_ids"
+                                    nolabel="1"
+                                    widget="many2many_tags"
+                                    placeholder="Select product(s)"
+                                    domain="[('available_in_pos', '=', True), ('active', '=', True)]"/>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <label for="pos_stock_guard_message"/>
+                                <field
+                                    name="pos_stock_guard_message"
+                                    nolabel="1"
+                                    placeholder="Optional custom message shown in warning/block popup"/>
+                            </div>
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,47 @@
+<odoo>
+    <record id="view_shopify_webhook_workflow_configuration_tree" model="ir.ui.view">
+        <field name="name">shopify.webhook.workflow.configuration.tree</field>
+        <field name="model">shopify.webhook.workflow.configuration</field>
+        <field name="arch" type="xml">
+            <list editable="bottom">
+                <field name="sequence"/>
+                <field name="active"/>
+                <field name="instance_id"/>
+                <field name="order_import_status" string="Order Status"/>
+                <field name="payment_status" string="Payment"/>
+                <field name="delivery_status" string="Delivery"/>
+                <field name="auto_confirm_order" string="Confirm"/>
+                <field name="create_invoice" string="Invoice"/>
+                <field name="register_payment" string="Payment"/>
+                <field name="validate_delivery" string="Delivery"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_shopify_webhook_workflow_configuration_form" model="ir.ui.view">
+        <field name="name">shopify.webhook.workflow.configuration.form</field>
+        <field name="model">shopify.webhook.workflow.configuration</field>
+        <field name="arch" type="xml">
+            <form string="Webhook Workflow Rule">
+                <group>
+                    <group>
+                        <field name="sequence"/>
+                        <field name="active"/>
+                        <field name="instance_id"/>
+                    </group>
+                    <group>
+                        <field name="order_import_status"/>
+                        <field name="payment_status"/>
+                        <field name="delivery_status"/>
+                    </group>
+                </group>
+                <group string="Actions">
+                    <field name="auto_confirm_order"/>
+                    <field name="create_invoice"/>
+                    <field name="register_payment"/>
+                    <field name="validate_delivery"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

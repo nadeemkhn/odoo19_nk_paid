@@ -1,0 +1,124 @@
+<odoo>
+    <record id="view_shopify_instance_tree" model="ir.ui.view">
+        <field name="name">shopify.instance.tree</field>
+        <field name="model">shopify.instance</field>
+        <field name="arch" type="xml">
+            <list string="Shopify Instances">
+                <field name="name"/>
+                <field name="shopify_domain"/>
+                <field name="shopify_token"/>
+<!--                <field name="api_key"/>-->
+<!--                <field name="api_secret_key"/>-->
+                <field name="odoo_domain"/>
+<!--                <field name="webhook_secret"/>-->
+                <!--                <field name="shopify_location_id"/>-->
+            </list>
+        </field>
+    </record>
+
+    <record id="view_shopify_instance_form" model="ir.ui.view">
+        <field name="name">shopify.instance.form</field>
+        <field name="model">shopify.instance</field>
+        <field name="arch" type="xml">
+            <form string="Shopify Instance">
+                <header>
+                    <button name="action_manual_export_products" type="object" string="Export Products Now"
+                            class="btn-primary" invisible="state != 'confirm'"/>
+                    <button name="check_shopify_credentials" type="object" string="Check Token"
+                            class="btn-primary" invisible="state != 'draft'"/>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            invisible="state != 'draft'" class="btn-primary"/>
+                    <button name="action_set_draft" type="object" string="Set to Draft"
+                            invisible="state != 'confirm'" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirm"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" type="object" name="action_view_shopify_orders" icon="fa-shopping-cart">
+                            <field name="shopify_order_count" widget="statinfo" string="Orders"/>
+                        </button>
+                        <button class="oe_stat_button" type="object" name="action_view_shopify_products" icon="fa-cubes">
+                            <field name="shopify_product_count" widget="statinfo" string="Products"/>
+                        </button>
+                        <button class="oe_stat_button" type="object" name="action_view_shopify_customers" icon="fa-users">
+                            <field name="shopify_customer_count" widget="statinfo" string="Customers"/>
+                        </button>
+                        <button class="oe_stat_button" type="object" name="action_view_shopify_logs" icon="fa-list">
+                            <field name="sync_log_count" widget="statinfo" string="Logs"/>
+                        </button>
+                        <button class="oe_stat_button" type="object" name="action_open_dashboard" icon="fa-line-chart">
+                            <span class="o_stat_text">Dashboard</span>
+                        </button>
+                    </div>
+
+                    <group>
+                        <field name="shopify_order_count" invisible="1"/>
+                        <field name="shopify_product_count" invisible="1"/>
+                        <field name="shopify_customer_count" invisible="1"/>
+                        <field name="sync_log_count" invisible="1"/>
+                        <field name="name" readonly="state == 'confirm'"/>
+                        <field name="shopify_domain" readonly="state == 'confirm'"/>
+                        <field name="shopify_token" readonly="state == 'confirm'"/>
+<!--                        <field name="api_key" readonly="state == 'confirm'"/>-->
+<!--                        <field name="api_secret_key" readonly="state == 'confirm'"/>-->
+                        <field name="odoo_domain" readonly="state == 'confirm'"/>
+                        <field name="shopify_location_id" readonly="state == 'confirm'"/>
+<!--                        <field name="webhook_secret" readonly="state == 'confirm'"/>-->
+
+                    </group>
+                    <group col="1">
+                        <div class="o_form_label text-center">Order Workflow</div>
+                        <field name="webhook_workflow_configuration_ids"
+                               nolabel="1"
+                               colspan="2"
+                               context="{'default_instance_id': id, 'tree_view_ref': 'nk_shopify_connector.view_shopify_webhook_workflow_configuration_tree', 'form_view_ref': 'nk_shopify_connector.view_shopify_webhook_workflow_configuration_form'}">
+                            <list editable="bottom" create="1" delete="1">
+                                <field name="sequence"/>
+                                <field name="active"/>
+                                <field name="order_import_status" string="Order Status"/>
+                                <field name="payment_status" string="Payment"/>
+                                <field name="delivery_status" string="Delivery"/>
+                                <field name="auto_confirm_order" string="Confirm"/>
+                                <field name="create_invoice" string="Invoice"/>
+                                <field name="register_payment" string="Payment"/>
+                                <field name="validate_delivery" string="Delivery"/>
+                            </list>
+                            <form string="Webhook Workflow Rule">
+                                <group>
+                                    <field name="sequence"/>
+                                    <field name="active"/>
+                                </group>
+                                <group>
+                                    <field name="order_import_status"/>
+                                    <field name="payment_status"/>
+                                    <field name="delivery_status"/>
+                                </group>
+                                <group>
+                                    <field name="auto_confirm_order"/>
+                                    <field name="create_invoice"/>
+                                    <field name="register_payment"/>
+                                    <field name="validate_delivery"/>
+                                </group>
+                            </form>
+                        </field>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_shopify_instance" model="ir.actions.act_window">
+        <field name="name">Shopify Instances</field>
+        <field name="res_model">shopify.instance</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p>Create and manage your Shopify instance connections.</p>
+        </field>
+    </record>
+    <menuitem id="shopify_instance_menu"
+              name="Shopify Instances"
+              parent="menu_shopify_order_import_root"
+              action="action_shopify_instance"
+              sequence="10"/>
+</odoo>
